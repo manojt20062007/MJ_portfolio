@@ -24,7 +24,7 @@ const cardItems = [
     id: 1,
     title: 'Abdul Kalam Association Website (Live)',
     description: `Designed and deployed a live association management web portal using React.js and Vercel. Features responsive UI layout, event showcases, and membership management.`,
-    link: `https://github.com/manojt20062007/WebPageAssociation`,
+    link: `https://abdulkalamassociation.vercel.app/`,
     sourceCode: `https://github.com/manojt20062007/WebPageAssociation`,
     image: '/apj.png'
   },
@@ -32,7 +32,7 @@ const cardItems = [
     id: 2,
     title: 'Full-Stack E-Commerce Platform',
     description: `Built a full-stack e-commerce web application with role-based access for Admin, Seller, and Customer roles. Features product catalog, order workflows, and inventory management.`,
-    link: `https://github.com/manojt20062007/Ecommerce-Product`,
+    link: `https://manoj-product.vercel.app/`,
     sourceCode: `https://github.com/manojt20062007/Ecommerce-Product`,
     image: '/ecom.png'
   },
