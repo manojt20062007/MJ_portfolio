@@ -40,7 +40,7 @@ const cardItems = [
     id: 3,
     title: 'HRMS - Human Resource Management System',
     description: `Enterprise human resource management platform built with TypeScript. Features employee record management, attendance tracking, and role-based permissions.`,
-    link: `https://github.com/manojt20062007/HRMS`,
+    link: `https://ln-pmjhrms.vercel.app/`,
     sourceCode: `https://github.com/manojt20062007/HRMS`,
     image: '/hrms.png'
   },
@@ -56,7 +56,7 @@ const cardItems = [
     id: 5,
     title: 'Enterprise Billing System Application',
     description: `Retail and commercial billing software designed for fast invoice generation, transaction calculation, tax management, and client record keeping.`,
-    link: `https://github.com/manojt20062007/BillingSystemVC2026`,
+    link: `https://apjbilling.vercel.app/login`,
     sourceCode: `https://github.com/manojt20062007/BillingSystemVC2026`,
     image: '/ecom1.png'
   },
@@ -64,7 +64,7 @@ const cardItems = [
     id: 6,
     title: 'PMJ Digital Agency Web Portal',
     description: `Modern agency web application featuring responsive grid layouts, service portfolios, interactive cards, and contact form integration.`,
-    link: `https://github.com/manojt20062007/pmj-agency-portfolio`,
+    link: `https://pmjprojects.vercel.app/`,
     sourceCode: `https://github.com/manojt20062007/pmj-agency-portfolio`,
     image: '/pmj.png'
   },
@@ -72,7 +72,7 @@ const cardItems = [
     id: 7,
     title: 'ABSSAI - Smart AI Automation Interface',
     description: `TypeScript smart automation interface designed for AI-assisted data processing, modular component design, and intuitive user workflows.`,
-    link: `https://github.com/manojt20062007/ABSSAI`,
+    link: `https://admin-abssai.vercel.app/dashboard`,
     sourceCode: `https://github.com/manojt20062007/ABSSAI`,
     image: '/abssai.png'
   },
