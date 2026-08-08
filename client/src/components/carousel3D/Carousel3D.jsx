@@ -37,7 +37,7 @@ const items = [
         description: `Developed an encrypted messaging platform using Python, Flask, AES-GCM encryption, and SHA-256 hashing. Features secure user authentication and encrypted message storage.`,
         link: `https://github.com/manojt20062007`,
         sourceCode: `https://github.com/manojt20062007`,
-        image: '/sec.png'
+        image: '/2k.png'
     },
     {
         id: 5,
