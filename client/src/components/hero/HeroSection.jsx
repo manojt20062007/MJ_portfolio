@@ -1,0 +1,276 @@
+import React, { useEffect, useRef, useState } from 'react'
+import {
+    Box,
+    Typography,
+    useTheme,
+    useMediaQuery,
+    Stack
+} from "../../mui/muiComponents";
+import CustomButton from '../button/CustomButton';
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from 'react-router-dom';
+
+// Plug useGSAP
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+import { WorkOutlineIcon, VisibilityIcon } from '../../icons/icons';
+
+// Icons List
+const iconFiles = [
+    'axios.svg',
+    'codepen.svg',
+    'css.svg',
+    'django.svg',
+    'express.svg',
+    'git.svg',
+    'github.svg',
+    'greensock.svg',
+    'htmx.svg',
+    'javascript.svg',
+    'mongodb.svg',
+    'mongoose.svg',
+    'mui.svg',
+    'postman.svg',
+    'python.svg',
+    'react.svg',
+    'reactrouter.svg',
+    'redux.svg',
+    'render.svg',
+    'sass.svg',
+    'socketdotio.svg',
+    'tsnode.svg',
+    'vite.svg'
+]
+
+function HeroSection() {
+
+    const theme = useTheme();
+    const isSm = useMediaQuery(theme.breakpoints.down('sm'));
+    const isMd = useMediaQuery(theme.breakpoints.down('md'));
+    const isLg = useMediaQuery(theme.breakpoints.down('lg'));
+
+    const [index, setIndex] = useState(0);
+    const iconRef = useRef(null);
+
+    // Technologies list items Animation
+    useEffect(() => {
+        const interval = setInterval(() => {
+            gsap.to(iconRef.current, {
+                opacity: 0,
+                scale: 0.8,
+                duration: 0.4,
+                onComplete: () => {
+                    setIndex((prev) => (prev + 1) % iconFiles.length);
+                    gsap.fromTo(iconRef.current, {
+                        opacity: 0,
+                        scale: 0.8,
+                    },
+                        {
+                            opacity: 1,
+                            scale: 1,
+                            duration: 0.4,
+                        }
+                    )
+                }
+            })
+        }, 2000);
+
+        return () => clearInterval(interval);
+    }, [index]);
+
+    let currentIcon = `/icons/${iconFiles[index]}`;
+
+    // Subtitle text Animate.
+    const subtitle = `I am Manoj P, a Computer Science Engineering student passionate about Cybersecurity, Ethical Hacking, Software Testing, and Full-Stack Web Development. I build secure web applications using the MERN stack and Flask, with hands-on software QA testing experience.`;
+
+    // Split paragraph into words
+    const words = subtitle.split(' ');
+    const subtitleRef = useRef(null);
+
+    // heading text Animation
+    const headingRef = useRef(null);
+
+    // CTA animation
+    const btnRef1 = useRef(null);
+    const btnRef2 = useRef(null);
+
+    useEffect(() => {
+        if (!subtitleRef.current) return;
+        if (!headingRef.current) return;
+        if (!btnRef1.current) return;
+        if (!btnRef2.current) return;
+        subtitleRef.current.textContent = ' ';
+
+        gsap.set([btnRef1.current, btnRef2.current], {
+            opacity: 0,
+            y: 40,
+        });
+
+        const tl = gsap.timeline();
+
+        // Wrap each word in a span
+        words.forEach((word) => {
+            const span = document.createElement('span');
+            span.textContent = word + " ";
+            span.style.opacity = 0;
+            span.style.display = 'inline-block';
+            span.style.whiteSpace = 'pre';
+            span.style.textAlign = 'justify';
+            subtitleRef.current.appendChild(span);
+        });
+
+        // header animation 
+        tl.from(headingRef.current, {
+            opacity: 0,
+            y: 20,
+            duration: 0.6,
+            ease: 'linear'
+        })
+
+
+        // Animate all span children of the paragraph
+        tl.to(subtitleRef.current.children, {
+            opacity: 1,
+            y: 0,
+            stagger: 0.06,
+            duration: 0.35,
+            ease: 'power2.out',
+        });
+
+        // CTA Button Animation.
+        tl.to([btnRef1.current, btnRef2.current], {
+            opacity: 1,
+            y: 0,
+            stagger: 0.15,
+            duration: 0.5,
+            ease: 'power3.out',
+        });
+
+    }, []);
+
+    return (
+        <Box sx={{
+            display: 'flex',
+            gap: { xs: 4, md: 8 },
+            flexDirection: (isSm || isMd) ? 'column' : 'row '
+        }}>
+            {/* Left Box */}
+            <Box flex={1}
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    py: 4,
+                    order: isMd ? 1 : 0,
+                }}>
+
+                {/* Heading */}
+                <Typography
+                    ref={headingRef}
+                    variant='h1'
+                    fontFamily={'"Lora", serif'}
+                    fontSize={{ xs: '1.6rem', sm: '1.9rem', md: '2.2rem', lg: '3rem' }}
+                    textAlign={isSm && 'center'}
+                    fontWeight={600}
+                    letterSpacing={'0.02em'}
+                    lineHeight={{ xs: 1.2, md: 1.05 }}
+                    pb={{ xs: 2, md: 4 }}
+                    sx={{
+                        tabSize: 4,
+                        textSizeAdjust: '100%',
+                    }}
+                >
+                    <Typography
+                        component={'span'}
+                        variant='h1'
+                        gutterBottom
+                        fontFamily={'"Lora", serif'}
+                        fontSize={{ xs: '1.6rem', sm: '1.9rem', md: '2.2rem', lg: '3rem' }}
+                        fontWeight={600}
+                        letterSpacing={'0.02em'}
+                        lineHeight={{ xs: 1.2, md: 1.05 }}
+                        pb={{ xs: 2, md: 4 }}
+                        sx={{
+                            tabSize: 4,
+                            textSizeAdjust: '100%',
+                            textShadow: `0 0 1rem #000`
+                        }}
+                    >Secure Code,{' '}
+                    </Typography>
+                    Seamless UIs & Tested Software
+                </Typography>
+
+                {/* Subtitle text */}
+                <Typography
+                    variant='subtitle1'
+                    gutterBottom
+                    lineHeight={1.8}
+                    ref={subtitleRef}
+                    textAlign={'justify'}
+                />
+                {/* Button */}
+                <Stack
+                    mt={{ xs: 3, md: 8 }}
+                    justifyContent={isSm ? 'center' : 'flex-start'}
+                    direction={'row'}
+                    flexWrap={'wrap'}
+                    spacing={0}
+                    gap={1}
+                >
+
+                    <CustomButton
+                        ref={btnRef1}
+                        startIcon={<WorkOutlineIcon />}
+                        component={Link}
+                        to={'/contact'}
+                        color='text.primary'
+                    >
+                        Hire Me
+                    </CustomButton>
+
+                    <CustomButton
+                        ref={btnRef2}
+                        startIcon={<VisibilityIcon />}
+                        component={Link}
+                        to={'/projects'}
+                        color='text.primary'
+                    >
+                        View My Work
+                    </CustomButton>
+
+                </Stack>
+            </Box>
+
+            {/* Right Box */}
+            <Box flex={1}
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    order: isMd ? 0 : 1,
+                    userSelect: 'none',
+                }}>
+                <Box
+                    ref={iconRef}
+                    component={'img'}
+                    src={currentIcon}
+                    alt='tech-icon'
+                    aria-label='tech-icon'
+                    sx={{
+                        maxHeight: { xs: 100, md: 200 },
+                        maxWidth: { xs: 100, md: 200 },
+                        background: theme.palette.text.primary,
+                        borderRadius: 2,
+                        filter: 'brightness(80)',
+                        p: { xs: 1, md: 3 },
+                    }}
+                />
+            </Box>
+        </Box>
+
+    )
+}
+
+export default HeroSection
