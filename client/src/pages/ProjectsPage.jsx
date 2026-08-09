@@ -83,6 +83,14 @@ const cardItems = [
     link: `https://github.com/manojt20062007/2kciniminivideos`,
     sourceCode: `https://github.com/manojt20062007/2kciniminivideos`,
     image: '/2k.png'
+  },
+  {
+    id: 9,
+    title: 'Ajith Kumar - VFX Freelance Portfolio',
+    description: `Custom client portfolio website designed for a freelance VFX artist showcasing visual effects projects, showreels, responsive galleries, and contact integration.`,
+    link: `https://github.com/manojt20062007/AJITH-KUMAR`,
+    sourceCode: `https://github.com/manojt20062007/AJITH-KUMAR`,
+    image: '/22.png'
   }
 ];
 
